@@ -11,7 +11,7 @@ bl_info = {
 import bpy
 from bpy.types import Operator, Menu
 from bpy.props import StringProperty
-from .  mesh_library import create_prefab_instance
+from . mesh_library import create_prefab_instance
 
 
 PREFABS = {
