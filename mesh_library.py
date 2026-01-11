@@ -8,7 +8,7 @@ def get_addon_directory():
 def load_prefab_mesh(prefab_name, collection_name):
     """Load a prefab mesh and its materials from a separate .blend file"""
     addon_dir = get_addon_directory()
-    blend_path = addon_dir / "assets" / prefab_name / f"prefabs_{prefab_name}. blend"
+    blend_path = addon_dir / "assets" / prefab_name / f"prefabs_{prefab_name}.blend"
     
     if not blend_path.exists():
         raise FileNotFoundError(f"Blend file not found: {blend_path}")
@@ -25,7 +25,7 @@ def load_prefab_mesh(prefab_name, collection_name):
     # Link the collection to the scene
     loaded_collection = None
     for collection in data_to.collections:
-        bpy.context. scene.collection.children.link(collection)
+        bpy.context.scene.collection.children.link(collection)
         loaded_collection = collection
     
     return loaded_collection
@@ -38,6 +38,6 @@ def create_prefab_instance(prefab_name, collection_name, context):
     # Select all objects in the loaded collection
     for obj in collection.all_objects:
         obj.select_set(True)
-        context.view_layer. objects.active = obj
+        context.view_layer.objects.active = obj
     
     return collection
