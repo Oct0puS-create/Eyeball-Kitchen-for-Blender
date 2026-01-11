@@ -86,14 +86,31 @@ def menu_func_add(self, context):
 def register():
     bpy.utils.register_class(MESH_OT_add_prefab)
     bpy.utils.register_class(MESH_MT_add_prefab)
-    bpy.types.VIEW3D_MT_mesh_add.append(menu_func_add)
+    #bpy.types.VIEW3D_MT_mesh_add.append(menu_func_add)
+
+try:
+        mesh_add_menu.remove(menu_func_add)
+    except: 
+        pass
+    
+    # Add the menu (it will appear at the end by default)
+    mesh_add_menu.append(menu_func_add)
 
 
 def unregister():
-    bpy.utils.unregister_class(MESH_OT_add_prefab)
+    bpy. utils.unregister_class(MESH_OT_add_prefab)
     bpy.utils.unregister_class(MESH_MT_add_prefab)
-    bpy.types.VIEW3D_MT_mesh_add. remove(menu_func_add)
+    bpy.types.VIEW3D_MT_mesh_add.remove(menu_func_add)
 
 
-if __name__ == "__main__":
+if __name__ == "__main__": 
     register()
+
+#def unregister():
+   # bpy.utils.unregister_class(MESH_OT_add_prefab)
+   # bpy.utils.unregister_class(MESH_MT_add_prefab)
+   # bpy.types.VIEW3D_MT_mesh_add. remove(menu_func_add)
+
+
+#if __name__ == "__main__":
+  #  register()
